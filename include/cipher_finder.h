@@ -10,6 +10,7 @@ class CipherFinder {
 public:
     explicit CipherFinder(std::string&& file_name);
     std::optional<size_t> GetFirstKeyWord(std::string_view key);
+
 private:
     void WarmUp(std::string_view key);
 

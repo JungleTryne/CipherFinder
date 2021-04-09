@@ -75,6 +75,7 @@ std::optional<size_t> CipherFinder::ContinueSearch() {
  */
 void CipherFinder::FillBuffer() {
     std::string str_buffer;
+    str_buffer.resize(current_key_.size());
 
     size_t counter = 0;
     while (file_stream_ >> str_buffer) {

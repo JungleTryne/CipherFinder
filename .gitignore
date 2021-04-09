@@ -124,5 +124,6 @@ CMakeUserPresets.json
 *-prefix/
 
 .idea/
+bin/
 
 # End of https://www.toptal.com/developers/gitignore/api/clion,cmake
