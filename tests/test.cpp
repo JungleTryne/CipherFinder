@@ -3,6 +3,8 @@
 
 #include <cipher_finder.h>
 
+/* Проверяем, что вообще говоря это работает
+ */
 TEST_CASE("SimpleTest") {
     cipher::CipherFinder finder("test1.txt");
 
@@ -11,6 +13,9 @@ TEST_CASE("SimpleTest") {
     REQUIRE(first.value() == 0);
 }
 
+/* Проверяется факт того. что функция может быть вызвана несколько раз,
+ * и ничего не сломается
+ */
 TEST_CASE("MultipleTimes") {
     cipher::CipherFinder finder("test1.txt");
 
@@ -23,6 +28,9 @@ TEST_CASE("MultipleTimes") {
     REQUIRE(second.value() == 5);
 }
 
+/* Может получится так, что ответ будет чуть ли не
+ * в самом конце текста. Проверка этого случая
+ */
 TEST_CASE("LastWord") {
     cipher::CipherFinder finder("test1.txt");
     auto first = finder.GetFirstKeyWord("dsm");
@@ -30,6 +38,8 @@ TEST_CASE("LastWord") {
     REQUIRE(first.value() == 66);
 }
 
+/* А вдруг мы не нашли такого шифра?)
+ */
 TEST_CASE("NotFound") {
     cipher::CipherFinder finder("test1.txt");
     auto first = finder.GetFirstKeyWord("abc");

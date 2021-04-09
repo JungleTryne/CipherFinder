@@ -6,6 +6,10 @@
 
 namespace cipher {
 
+/* Класс CipherFinder. Реализует алгоритм поиска первого слова,
+ * который является частью данного шифра (ключа).
+ * Алгоритм реализации см. в README.md
+ */
 class CipherFinder {
 public:
     explicit CipherFinder(std::string&& file_name);
