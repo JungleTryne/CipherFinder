@@ -16,14 +16,18 @@ private:
     void AddWordToBuffer(std::string_view new_word);
     void RemoveWordFromBuffer();
 
-    void FillBuffer(std::ifstream& file);
+    std::optional<size_t> ContinueSearch();
+    void FillBuffer();
     void UpdateBuffer(std::string_view new_word);
-    [[nodiscard]] bool CheckBuffer(std::string_view key) const;
+
+    [[nodiscard]] bool CheckBuffer() const;
 
 private:
     std::deque<char> buffer_;
     std::string file_name_;
     std::string_view current_key_;
+
+    std::ifstream file_stream_;
 };
 
 }  // namespace cipher
